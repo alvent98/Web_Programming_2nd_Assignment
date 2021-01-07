@@ -1,0 +1,39 @@
+<!DOCTYPE HTMl>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>My Bookmarks</title>
+		<link rel="stylesheet" href="/css/styling.css" type="text/css">
+		<script>
+			var titlesFromBackend = "[[${backendTitles}]]";
+			var emailFromBackend = "[[${backendEmail}]]";
+		</script>
+		
+		<script src="/js/functions.js" type="application/javascript"></script>
+	</head>
+
+	<body onload="getBookmarks(titlesFromBackend,emailFromBackend)">
+		<header>
+			<h1 id="personalisation"> </h1>
+		</header>
+
+		<main id="main">
+			<form action="/welcome" method="get">
+                <input type="submit" value="Search Again!" class="navigate"/>
+			</form>
+			
+			<form action="/login" method="get">
+                <input type="submit" value="Log out" class="navigate" id="logout"/>
+			</form>	
+		</main>
+
+		<footer>
+			<p> Created by: <br> Alexandros Ventouras & Nikos Dousis <br> &copy; 2020 </p>
+		</footer>
+
+	</body>
+
+</html>

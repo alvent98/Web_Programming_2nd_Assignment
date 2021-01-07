@@ -1,0 +1,57 @@
+<!DOCTYPE HTMl>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Search</title>
+		<link rel="stylesheet" href="/css/styling.css" type="text/css">
+		<script>
+			var emailFromBackend = "[[${backendEmail}]]";
+		</script>
+		<script src="/js/functions.js"></script>
+	</head>
+
+	<body onload="personalise(emailFromBackend)">
+		<header>
+			<h1 id="personalisation"> </h1>
+		</header>
+
+		<main>
+			<form>
+                <input type="text" placeholder="search here" onkeyup="fetchData()" id="input">
+            </form>
+            <br>
+            <form action="/bookmarks" method="get">
+                <input type="submit" value="My Bookmarks" class="navigate"/>
+			</form>
+			
+			<form action="/login" method="get">
+                <input type="submit" value="Log out" class="navigate" id="logout"/>
+			</form>	
+			
+			<div id="wrapper">
+				<img id="poster" alt="">
+				
+				<div id="verWrapper">
+					<form action="/welcome" method="post">
+						<div > 
+							<p class="data" id="general_info"> </p>
+						</div>						
+						<input type="submit" id="save" name="title" value="Save" class="data">
+					</form>				
+					<p class="data" id="plot"></p>
+					<input type="submit" id="morebtn" value="Show more" class="data" onclick="fetchFullPlot()">     
+				</div>				
+			</div>
+			
+		</main>
+
+		<footer>
+			<p> Created by: <br> Alexandros Ventouras & Nikos Dousis <br> &copy; 2020 </p>
+		</footer>
+
+	</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE HTMl>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Sign up</title>
+		<link rel="stylesheet" href="/css/styling.css" type="text/css">
+		<script>
+			var messageFromBackend = "[[${errorMessage}]]";
+		</script>
+		<script src="/js/functions.js"> </script>
+	</head>
+
+	<body>
+		<header>
+			<h1> Sign Up! </h1>
+		</header>
+		<main id="main">
+            <form action="#" th:action="@{/registration}"
+        th:object="${user}" method="post">
+				<label> Email: 
+					<input placeholder="youremail@gmail.com" type="email" th:field="*{email}" name="your-email-sign-up">
+				</label>
+				<br><br>
+				<label> Your password: 
+					<br>
+					<input type="password" th:field="*{password}" name="your-password-sign-up">
+                </label>
+                <br><br>
+				<label> 
+				<input type="submit" id="sign-up-button" value="Sign up" class="navigate" onclick="errorMessage(messageFromBackend)">
+				</label> 
+			</form>
+			<form action="/login" method="get">     
+				<p> Already have an account? </p>   	 	
+        	 	<label>
+				<input type="submit" id="sign-in-button" value="Sign In" class="navigate">
+				</label> 
+        	</form>
+        </main>
+		<footer>
+			<p> Created by: <br> Alexandros Ventouras & Nikos Dousis <br> 2020 </p>
+		</footer>
+	</body>
+</html>
